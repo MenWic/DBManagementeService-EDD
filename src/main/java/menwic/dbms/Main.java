@@ -21,7 +21,7 @@ import menwic.dbms.values.ListaValores;
  *
  * @author lamr4
  */
-public class DBMagementSystem {
+public class Main {
 
     public static void main(String[] args) {
         
