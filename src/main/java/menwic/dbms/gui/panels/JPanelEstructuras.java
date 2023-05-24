@@ -2,9 +2,11 @@ package menwic.dbms.gui.panels;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 import menwic.dbms.structure.Estructura;
 import menwic.dbms.structure.ListaEstructuras;
 import menwic.dbms.structure.NodoEstructura;
+
 import menwic.dbms.structure_fields.Campo;
 import menwic.dbms.structure_fields.ListaCampos;
 
@@ -14,18 +16,19 @@ import menwic.dbms.structure_fields.ListaCampos;
  */
 public class JPanelEstructuras extends javax.swing.JPanel {
 
-    private ListaEstructuras listaEstructuras;
+    private ListaEstructuras listaEstructuras; //lista donde almacenaremos la lista  del FramePrincipal
     private DefaultTableModel tabla; //tabla
 
+    //Constructor
     public JPanelEstructuras(ListaEstructuras listaEstructuras) {
         this.listaEstructuras = listaEstructuras;
         initComponents();
 
-        tabla = new DefaultTableModel();
+        tabla = new DefaultTableModel(); //Tabla con columnas estaticas
         tabla.addColumn("Estructura / Fila");
         tabla.addColumn("Campo Clave");
-        this.JTableTabla.setModel(tabla);
-        mostrarTabla(); //Actualizar tabla de estructuras
+        this.JTableTabla.setModel(tabla); //Settear modelo estatico a la tabla del Panel
+        mostrarTabla(); //Actualizar jtabla de estructuras
     }
 
     /**
@@ -73,6 +76,11 @@ public class JPanelEstructuras extends javax.swing.JPanel {
         });
 
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         jTextFieldTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,92 +129,113 @@ public class JPanelEstructuras extends javax.swing.JPanel {
         jPanelContentEstructuras.setLayout(jPanelContentEstructurasLayout);
         jPanelContentEstructurasLayout.setHorizontalGroup(
             jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
-                            .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldClave, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldNumCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
-                            .addGap(74, 74, 74)
-                            .addComponent(jLabel9)))
-                    .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
-                        .addComponent(jButtonCrear)
-                        .addGap(81, 81, 81)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentEstructurasLayout.createSequentialGroup()
                 .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentEstructurasLayout.createSequentialGroup()
+                    .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldClave, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNumCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(115, 115, 115))
+                    .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                                .addGap(177, 177, 177)
+                                .addComponent(jLabel9))
+                            .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                                .addGap(175, 175, 175)
+                                .addComponent(jButtonCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                                .addComponent(jButtonVaciar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67)
+                                .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(112, Short.MAX_VALUE))
+                    .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
                         .addComponent(jLabel11)
-                        .addGap(236, 236, 236))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentEstructurasLayout.createSequentialGroup()
-                        .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentEstructurasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentEstructurasLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(350, 350, 350))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentEstructurasLayout.createSequentialGroup()
-                        .addComponent(jButtonVaciar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(193, 193, 193))))
+                .addComponent(jLabel1)
+                .addGap(369, 369, 369))
         );
         jPanelContentEstructurasLayout.setVerticalGroup(
             jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(50, 50, 50)
                 .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel11))
-                .addGap(31, 31, 31)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
-                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jTextFieldTabla)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jTextFieldClave)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNumCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldNumCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(jButtonCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelContentEstructurasLayout.createSequentialGroup()
+                        .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonCrear)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonVaciar))
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addGroup(jPanelContentEstructurasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonVaciar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         add(jPanelContentEstructuras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 500));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTablaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTablaActionPerformed
-
     private void jTextFieldNumCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumCamposActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNumCamposActionPerformed
 
-    private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
+    private void jTextFieldTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTablaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTablaActionPerformed
 
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        //PENDIENTE METODO QUE: elimine estructura especifica de la Lista enlazada
+        for (int i = 0; i < listaEstructuras.getSize(); i++) {
+            listaEstructuras.eliminarFinal();
+        }
+        mostrarTabla(); //Actualizar tabla visual
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVaciarActionPerformed
+        //Metodo que eliminar todos los nodos estructura de la lista desde el ultimo al primero
+        for (int i = 0; i < listaEstructuras.getSize()+1; i++) {
+            listaEstructuras.eliminarFinal();
+        }
+        mostrarTabla(); //Actualizar tabla visual
+    }//GEN-LAST:event_jButtonVaciarActionPerformed
+
+    private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
         jTextFieldTabla.setEditable(false);
         jTextFieldClave.setEditable(false);
         jTextFieldNumCampos.setEditable(false);
@@ -217,6 +246,7 @@ public class JPanelEstructuras extends javax.swing.JPanel {
         String claveTabla;
         int cantCampos;
 
+        //Captura de datos
         nombreTabla = jTextFieldTabla.getText();
         claveTabla = jTextFieldClave.getText();
         cantCampos = Integer.parseInt(jTextFieldNumCampos.getText());
@@ -225,7 +255,7 @@ public class JPanelEstructuras extends javax.swing.JPanel {
         ListaCampos listaCamposInit = new ListaCampos();
         nuevaEstructura.setListaCampos(listaCamposInit); //PROBANDO
 
-        //listaEstructuras.insertar(nuevaEstructura); //Se guarda la estructura en la ListaEstructuras
+        //listaEstructuras.insertarFinal(nuevaEstructura); //Se guarda la estructura en la ListaEstructuras
         JOptionPane.showMessageDialog(null, "Ingrese los datos de los: " + cantCampos + " campos, Por favor");
 
         try {
@@ -254,53 +284,44 @@ public class JPanelEstructuras extends javax.swing.JPanel {
             }
 
             //una vez creada la escturctura validamos si la llave primaria fue agregada a sus campos
-            if (verSiLlavePrimariaExiste(nuevaEstructura)) {
+            if (claveEstructuraExiste(nuevaEstructura)) {
                 //Agregar Estructura a la Lista (cuando se haya terminado con los campos
-                listaEstructuras.insertar(nuevaEstructura);
-                //PROBANDOOOOOOOOO
-                mostrarTabla();
-
-                //BORRAR HACIA ABAJO >>
-                //Imprime Estructuras almacenadas
-                listaEstructuras.recorrerListaEstructuras();
-            }else{
-                JOptionPane.showMessageDialog(null, "No se agrego la llave primaria, la Estructura se deshecho. Intente nuevamente");
+                    listaEstructuras.insertarFinal(nuevaEstructura);
+                    mostrarTabla(); //Actualizar datos de la tabla visual luego de insertar la nuevaEstructura
+                    listaEstructuras.recorrerListaEstructuras();//Imprime Estructuras almacenadas
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se agrego la llave primaria, la Estructura se deshecho. Intente nuevamente");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Hubo un error, la Estructura se deshecho. Intente nuevamente");
+                e.printStackTrace(); //Imprime el error en consola
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Hubo un error, la Estructura se deshecho. Intente nuevamente");
-            e.printStackTrace(); //Imprime el error en consola
-        }
-        //Habilitar textfields y boton crear
-        jTextFieldTabla.setText("");
-        jTextFieldTabla.setEditable(true);
-        jTextFieldTabla.setText("");
-        jTextFieldClave.setEditable(true);
-        jTextFieldClave.setText("");
-        jTextFieldNumCampos.setEditable(true);
-        jTextFieldNumCampos.setText("");
-        jButtonCrear.setEnabled(true);
+            //Habilitar textfields y boton crear luego de crear Tabla
+            jTextFieldTabla.setText("");
+            jTextFieldTabla.setEditable(true);
+            jTextFieldTabla.setText("");
+            jTextFieldClave.setEditable(true);
+            jTextFieldClave.setText("");
+            jTextFieldNumCampos.setEditable(true);
+            jTextFieldNumCampos.setText("");
+            jButtonCrear.setEnabled(true);
     }//GEN-LAST:event_jButtonCrearActionPerformed
 
-    private boolean verSiLlavePrimariaExiste(Estructura estructura) {
+    //Metodo que verifica si el nombre de la clave indicado, es un campo creado de la nueva estructura
+    private boolean claveEstructuraExiste(Estructura estructura) { //Busca en listaCampos de la estructura que pasamos
 
-        String nombreLlavePrimaria = estructura.getClave();
+        String nombreClave = estructura.getClave();
+        Campo[] camposTabla = estructura.getListaCampos().returnCampos(); //Arreglo de nodos que posee campos de la estructura pasada
 
-        Campo[] camposDeLaTabla = estructura.getListaCampos().returnCampos();
-
-        for (Campo campoItem : camposDeLaTabla) {
-            if (campoItem.getNombre().equals(nombreLlavePrimaria)) {
+        //Recorre cada nodo del arreglo de Campos
+        for (Campo campoItem : camposTabla) {
+            if (campoItem.getNombre().equals(nombreClave)) {
                 return true;
             }
         }
-
-        return false;
-
+        return false; //si no lo encontro, retorna falso
     }
-    private void jButtonVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVaciarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonVaciarActionPerformed
-
     private void mostrarTabla() {
         NodoEstructura[] listaNodosEstructura = listaEstructuras.returnNodos();
         this.tabla.setRowCount(0); //Remueve filas

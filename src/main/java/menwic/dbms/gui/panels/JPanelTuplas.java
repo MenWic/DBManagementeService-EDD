@@ -26,6 +26,7 @@ public class JPanelTuplas extends javax.swing.JPanel {
     private final ListaEstructuras listaEstructuras;
     private final CreadorDeTupla creadorDeTupla;
     private DefaultTableModel tablaModel;
+    private String nombreTablaText = "";
 
     public JPanelTuplas(ListaEstructuras listaEstructuras) {
         this.listaEstructuras = listaEstructuras;
@@ -54,6 +55,7 @@ public class JPanelTuplas extends javax.swing.JPanel {
         tabla = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         jButtonVerTabla = new javax.swing.JButton();
+        jButtonVaciar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
         jLabel1.setText("MENU TUPLAS");
@@ -88,9 +90,7 @@ public class JPanelTuplas extends javax.swing.JPanel {
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "123456", "20/05/2023", "Quiche"},
-                {"124", "123", "21/05/2023", "Xela"},
-                {null, null, null, null}
+                {"123", "123456", "Es solo un", "Ejemplo"}
             },
             new String [] {
                 "NoFactura", "Nit", "Fecha", "Lugar"
@@ -116,66 +116,84 @@ public class JPanelTuplas extends javax.swing.JPanel {
             }
         });
 
+        jButtonVaciar.setText("Vaciar");
+        jButtonVaciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVaciarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelContenidoLayout = new javax.swing.GroupLayout(jPanelContenido);
         jPanelContenido.setLayout(jPanelContenidoLayout);
         jPanelContenidoLayout.setHorizontalGroup(
             jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
                 .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
                         .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextFieldTupla, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNombreTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel9)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldTupla, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNombreTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
+                        .addGap(44, 44, 44)
                         .addComponent(jButtonCrear)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonVerTabla)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addGap(57, 57, 57)
+                        .addComponent(jButtonVerTabla))
+                    .addGroup(jPanelContenidoLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel9)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+                        .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(249, 249, 249))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(395, 395, 395))
+                        .addGap(445, 445, 445))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContenidoLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(221, 221, 221))))
+                        .addComponent(jButtonVaciar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(355, 355, 355))))
         );
         jPanelContenidoLayout.setVerticalGroup(
             jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContenidoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(12, 12, 12)
-                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
                 .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelContenidoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(194, 194, 194)
                         .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNombreTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonVerTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelContenidoLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldTupla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonCrear)
-                            .addComponent(jButtonVerTabla)))
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelContenidoLayout.createSequentialGroup()
+                                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldNombreTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldTupla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonVaciar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -199,7 +217,7 @@ public class JPanelTuplas extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldTuplaActionPerformed
 
     /**
-     * Envento click en el boton insertar
+     * Envento click en el boton insertarFinal
      *
      * @param evt
      */
@@ -215,10 +233,20 @@ public class JPanelTuplas extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonCrearActionPerformed
 
     private void jButtonVerTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerTablaActionPerformed
-        String nombreTablaString = this.jTextFieldNombreTabla.getText().trim();
-        this.mostrarTabla(nombreTablaString);
+        nombreTablaText = this.jTextFieldNombreTabla.getText().trim();
+        this.mostrarTabla(nombreTablaText);
     }//GEN-LAST:event_jButtonVerTablaActionPerformed
 
+    private void jButtonVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVaciarActionPerformed
+        //Metodo que eliminar todos los nodos estructura de la lista desde el ultimo al primero
+        if (nombreTablaText != "") { //Si no se ha visto una tabla antes, no se ejecutara la query
+            ListaTuplas listaTuplasVacia = new ListaTuplas();
+            listaEstructuras.getNodoEstructuraPorNombre(nombreTablaText).getEstructura().setListaTuplas(listaTuplasVacia);
+            mostrarTabla(nombreTablaText); //Actualizar tabla con estructura vista previamente
+        }
+    }//GEN-LAST:event_jButtonVaciarActionPerformed
+
+    //Metodo que busca una tabla por nombre y muestra  sus campos con lista de tuplas
     private void mostrarTabla(String nombreTabla) {
         //mandamos ha buscar el nodo que contiene la tabla
         NodoEstructura tablaEncontrada = this.listaEstructuras.getNodoEstructuraPorNombre(nombreTabla);
@@ -231,27 +259,25 @@ public class JPanelTuplas extends javax.swing.JPanel {
 
         //si existe la tabla entonces mandar ha traer la lista de campos
         Campo[] campos = tablaEncontrada.getEstructura().getListaCampos().returnCampos();
-        //mandamos ha crear las columnas
-        setColomunas(campos);
+        setColomunas(campos); //mandamos ha crear las columnas
         //traemos las tuplas de la lista
         Tupla[] tuplas = tablaEncontrada.getEstructura().getListaTuplas().getTuplas();
         //mandmaos ha mostrar las tuplas
-        this.mostrarTuplas(tuplas, campos);
+        this.mostrarTuplas(tuplas, campos); //Metodo para mostrar tabla con tuplas actualizadas
     }
 
+    //Metodo que muestra la tuplas en la tabla
     private void mostrarTuplas(Tupla[] tuplas, Campo[] campos) {
         this.tablaModel.setRowCount(0); //Remueve filas
-
-        //crear un array de strings que sera para agregar cada fila
-        String[] fila = new String[campos.length];
+        String[] fila = new String[campos.length]; //crear un array de strings que sera para agregar cada fila
 
         //recorremos cada tupla del array de tuplas
         for (Tupla itemTupla : tuplas) {
             //mandamos ha traer el listado de valores de la tupla
             Valor[] valores = itemTupla.getListaValores().getValores();
             int contador = 0;
-            for (Campo campoItem : campos) {
 
+            for (Campo campoItem : campos) {
                 for (Valor valorItem : valores) {
                     if (campoItem.getNombre().equals(valorItem.getNombreCampo())) {
                         fila[contador] = valorItem.getContenido();
@@ -259,16 +285,15 @@ public class JPanelTuplas extends javax.swing.JPanel {
                 }
                 contador++;
             }
-
             this.tablaModel.addRow(fila);//agregamos la fila contruida
             fila = new String[campos.length];//vaciamos la fila para llenarla con una nueva
         }
-
     }
 
+    //Metodo para cambiar las columnas de la tabla visual
     private void setColomunas(Campo[] campos) {
-        //creamos un nuevo modelo de columnas
-        tablaModel = new DefaultTableModel();
+        tablaModel = new DefaultTableModel(); //creamos un nuevo modelo de columnas
+
         //por cada campo agreagmos una nueva columna
         for (Campo itemCampo : campos) {
             tablaModel.addColumn(itemCampo.getNombre());
@@ -279,6 +304,7 @@ public class JPanelTuplas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCrear;
+    private javax.swing.JButton jButtonVaciar;
     private javax.swing.JButton jButtonVerTabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

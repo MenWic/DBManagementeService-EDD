@@ -9,6 +9,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 import menwic.dbms.gui.panels.JPanelEstructuras;
 import menwic.dbms.gui.panels.JPanelTuplas;
 
@@ -24,12 +25,11 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
     private ListaEstructuras listaEstructuras;
     FileHandler manejador;
 
+    //Constructor
     public JFrameFormPrincipal(ListaEstructuras listaEstructuras) {
-        this.listaEstructuras = listaEstructuras;
-        this.manejador = new FileHandler(listaEstructuras);
+        this.listaEstructuras = listaEstructuras; //Lista princiapla para almacenar tablas
+        this.manejador = new FileHandler(listaEstructuras); //Manjeador de Archivos de lectura
         initComponents();
-        
-        //Lista Principal de Estructuras        
     }
 
     /**
@@ -67,7 +67,7 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
 
         menuArchivo.setText("Archivo(s)");
 
-        itemCargarArchivo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemCargarArchivo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK));
         itemCargarArchivo.setText("Cargar Estructura(s)");
         itemCargarArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +76,7 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         });
         menuArchivo.add(itemCargarArchivo);
 
-        itemCargarArchivo1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        itemCargarArchivo1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_DOWN_MASK));
         itemCargarArchivo1.setText("Cargar Entrada(s)");
         itemCargarArchivo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +90,7 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         menuEstructura.setText("Estructura/Tabla");
 
         jMenuItemCrudEstructuras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItemCrudEstructuras.setText("CRUD Estructuras");
+        jMenuItemCrudEstructuras.setText("Estructuras");
         jMenuItemCrudEstructuras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemCrudEstructurasActionPerformed(evt);
@@ -103,7 +103,7 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         menuTupla.setText("Tupla/Fila");
 
         jMenuItemCrudTupla.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItemCrudTupla.setText("CRUD Fila/TUpla");
+        jMenuItemCrudTupla.setText("Tupla");
         jMenuItemCrudTupla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemCrudTuplaActionPerformed(evt);
@@ -130,10 +130,7 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemCargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCargarArchivoActionPerformed
-        //Selector de Archivos
-        
-        //LISTA ENLAZADA DE "FILES"
-        
+  //LISTA ENLAZADA DE "FILES"
         JFileChooser selecArchivo = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Etiqueta XML (*.xml, *.dat, *.rpt)", "xml", "dat", "rpt");
         selecArchivo.setFileFilter(filter);
@@ -164,7 +161,7 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         pTuplas.setSize(1000, 500);
         pTuplas.setLocation(0, 0);
         JPanelContenedor.removeAll();
-        JPanelContenedor.add(pTuplas, BorderLayout.CENTER);
+        JPanelContenedor.add(pTuplas, BorderLayout.CENTER); //Agrega panel de Menu Tuplas
         JPanelContenedor.revalidate();
         JPanelContenedor.repaint();
     }//GEN-LAST:event_jMenuItemCrudTuplaActionPerformed
@@ -175,18 +172,17 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         pEstructuras.setSize(1000, 500);
         pEstructuras.setLocation(0, 0);
         JPanelContenedor.removeAll();
-        JPanelContenedor.add(pEstructuras, BorderLayout.CENTER);
+        JPanelContenedor.add(pEstructuras, BorderLayout.CENTER); //Agrega panel de Menu Estructuras
         JPanelContenedor.revalidate();
         JPanelContenedor.repaint();
     }//GEN-LAST:event_jMenuItemCrudEstructurasActionPerformed
 
     private void itemCargarArchivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCargarArchivo1ActionPerformed
-
         JFileChooser selecArchivo = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Etiqueta XML (*.xml, *.dat, *.rpt)", "xml", "dat", "rpt");
         selecArchivo.setFileFilter(filter);
 
-        int resultado = selecArchivo.showOpenDialog(null);
+        int resultado = selecArchivo.showOpenDialog(null);//Selector de Archivo Dialog
 
         if (resultado == JFileChooser.APPROVE_OPTION) { //Si se Selecciono algun archivo
             String nombreArchivo = selecArchivo.getSelectedFile().getName();

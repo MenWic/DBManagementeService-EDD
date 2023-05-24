@@ -69,17 +69,20 @@ public class FileHandler {
 
                                 case "clave":
                                     clave = valorNodo;
+                                    //Se settea al nuevaEstructura despues
                                     break;
 
                                 case "relacion":
+
                                     //Pendiente
-                                    //Hacer un for recorreindo HIjoNodo, e iterar dentro de ellos como en los de Estructura
+                                    //Hasta aqui
                                     break;
 
                                 default:
                                     Campo nuevoCampo = new Campo(nombreNodo, valorNodo);
                                     listaCampos.agregarAlFinal(nuevoCampo);
-                                //throw new AssertionError();
+                                    //throw new AssertionError();
+                                    break;
                             }
                         }
                     }
@@ -90,7 +93,7 @@ public class FileHandler {
                         if (nodoCampoClave != null) {
                             nuevaEstructura.setClave(clave); //Agregamos Clave leida al objeto Estructura
                             nuevaEstructura.setListaCampos(listaCampos); //Agregamos listaCampos leida al objeto Estructura
-                            listaEstructuras.insertar(nuevaEstructura);
+                            listaEstructuras.insertarFinal(nuevaEstructura);
                             System.out.println("Estructura creada y almacenada en listaEstructuras");
                         } else {
                             System.out.println("Dato(s) incompleto(s), corrige y vuelve a intentar");
@@ -104,7 +107,6 @@ public class FileHandler {
 
         listaEstructuras.recorrerListaEstructuras();
     }
-
     //Metodo que lee dat de Tuplas
     public void leerEntradas(File archivo) {
         try {
@@ -150,7 +152,7 @@ public class FileHandler {
                         }
                     }
 
-                    //una vez construimos la query entonces mandamos ha insertar la tupla
+                    //una vez construimos la query entonces mandamos ha insertarFinal la tupla
                     String insertarTupla = this.creadorDeTupla.insertarTupla(nombreTabla, tuplaString);
                     JOptionPane.showMessageDialog(null,
                             insertarTupla, "Info", JOptionPane.INFORMATION_MESSAGE);

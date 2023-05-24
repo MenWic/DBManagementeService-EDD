@@ -1,19 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package menwic.dbms;
 
-import java.io.File;
-import javax.swing.JPanel;
-import menwic.dbms.file_handler.FileHandler;
 import menwic.dbms.gui.JFrameFormPrincipal;
-import menwic.dbms.gui.panels.*;
+
 import menwic.dbms.structure.Estructura;
-
 import menwic.dbms.structure.ListaEstructuras;
-import menwic.dbms.structure_fields.ListaCampos;
 
+import menwic.dbms.structure_fields.ListaCampos;
 import menwic.dbms.structure_fields.Campo;
+
 import menwic.dbms.tuple.ListaTuplas;
 import menwic.dbms.values.ListaValores;
 
@@ -24,12 +18,10 @@ import menwic.dbms.values.ListaValores;
 public class Main {
 
     public static void main(String[] args) {
-        
-        ListaEstructuras listaEstructuras = new ListaEstructuras(); //Lista Principal que almacena las Estructuras
-        //JPanelEstructuras pEstructuras = new JPanelEstructuras(listaEstructuras);
-        //JPanelTuplas pTuplas = new JPanelTuplas(listaEstructuras);
 
-        JFrameFormPrincipal principal = new JFrameFormPrincipal(listaEstructuras);
+        ListaEstructuras listaEstructuras = new ListaEstructuras(); //Lista Principal que almacena las Estructuras
+
+        JFrameFormPrincipal principal = new JFrameFormPrincipal(listaEstructuras); //Enviamos lista Principal
         principal.setVisible(true);
 
         //Variables para: CaputraDatos -> Metodos 
@@ -40,7 +32,7 @@ public class Main {
         String tipoDatoUser = ""; //Especifica el tipo de Dato para el campo que se esta creando
         String nombreEstructuraRef = ""; //OPC nombreEstructura de la cual un Campo es la referencia
 
-        //------------------------------------------------------------------------------------------------------------------------
+        //----------------------------------------- TABLAS DE PRUEBA -------------------------------------------------------------
         //Estructura Cliente
         nombreEstructura = "cliente";
         nombreCampoClave = "Nit";
@@ -67,12 +59,7 @@ public class Main {
         listaCamposCliente.agregarAlFinal(campo2);
 
         structCliente.setListaCampos(listaCamposCliente); //Agregamos/Setteamos la listaCampos de la Estructura
-
-        //Tuplas y Valores de Cliente
-        /*
-            pendiente
-         */
-        listaEstructuras.insertar(structCliente); //Agregamos la Estructura creada a la Lista Principal
+        listaEstructuras.insertarFinal(structCliente); //Agregamos la Estructura creada a la Lista Principal
 
         //Estructura Factura
         nombreEstructura = "factura";
@@ -98,7 +85,7 @@ public class Main {
             campo11.setReferencia(listaEstructuras.getNodoEstructuraPorNombre(nombreEstructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombre(nombreCampoUser).getCampo());
             nombreEstructuraRef = "";
         }
-        listaCamposFactura.agregarAlFinal(campo11);
+        listaCamposFactura.agregarAlFinal(campo11); //Guardamos el Campo en la listaCampos de Factura
 
         nombreCampoUser = "Fecha";
         tipoDatoUser = "varchar";
@@ -117,17 +104,12 @@ public class Main {
         Campo campo44 = new Campo(nombreCampoUser, tipoDatoUser);
 
         listaCamposFactura.agregarAlFinal(campo44);
+        structFactura.setListaCampos(listaCamposFactura); //Por ultimo, Agregamos/Setteamos la listaCampos de la Estructura
 
-        structFactura.setListaCampos(listaCamposFactura); //Agregamos/Setteamos la listaCampos de la Estructura
-
-        //Tuplas y Valores de Cliente
-        /*
-            pendiente
-         */
-        listaEstructuras.insertar(structFactura); //Agregamos la Estructura creada a la Lista Principal
+        listaEstructuras.insertarFinal(structFactura); //Agregamos la Estructura creada a la Lista Principal
 
         System.out.println(listaEstructuras.getNodoEstructuraPorNombre("factura").getEstructura().getListaCampos().recorrerListaCampos());
 
-        //------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------ FIN TABLAS PRUEBAS ----------------------------------------------------
     }
 }

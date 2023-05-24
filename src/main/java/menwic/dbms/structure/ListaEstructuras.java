@@ -6,9 +6,10 @@ package menwic.dbms.structure;
  */
 public class ListaEstructuras {
 
+    //Atributos de cada Instancia ListaEstructuras
     private NodoEstructura primero;
     private NodoEstructura ultimo;
-    private int size = 0;
+    private int size = 0; //Contador de nodos
 
     //Constructor
     public ListaEstructuras() {
@@ -29,13 +30,14 @@ public class ListaEstructuras {
         return primero;
     }
 
+    //METODOS PRINCIPALES
     //Verificar si la Lista no tiene Nodos
     public boolean estaVacia() {
         return primero == null;
     }
 
-    //Incersion a la cola
-    public void insertar(Estructura estructura) {
+    //Incersion al final de la Lista
+    public void insertarFinal(Estructura estructura) {
         NodoEstructura nuevoNodo = new NodoEstructura(estructura);
 
         if (estaVacia()) { //si esta vacia
@@ -51,8 +53,8 @@ public class ListaEstructuras {
         }
     }
 
-    //Eliminar la cola (ELIMINAR ESTE METODO)
-    public void eliminar() {
+    //Eliminar el ultimo nodo (MODIFICAR A: buscar nodoEstructuraPorNombre (este debe recorrer la listaEstrucuras y comparar), luego eliminar las referencias a ese nodo)
+    public void eliminarFinal() {
         if (!estaVacia()) {
             if (primero == ultimo) { //Si solo hay un elemento en la Lista (Pero siemre habran 2 creo)
                 primero = null;
@@ -87,7 +89,7 @@ public class ListaEstructuras {
         return null; //No se encontro la Estructura con el nombre indicado
     }
 
-    //Metodo que imprime (Void: eliminar return y pasar string -> println)
+    //Metodo que imprime (Void: eliminarFinal return y pasar string -> println)
     public String recorrerListaEstructuras() {
         String strListaEstructuras = "";
         NodoEstructura actual = primero;
@@ -100,8 +102,21 @@ public class ListaEstructuras {
         return strListaEstructuras;
     }
 
+    //Metodo que recibe un String para buscar en las estructuras si es igual al nombre de la estructura
+    public boolean encontroEstructura(String nombreEstructuraRef) {
+        NodoEstructura actual = primero;
+        boolean bandera = false;
 
-    //Metodo que imprime (Void: eliminar return y pasar string -> println)
+        while (actual != null) {
+            if (actual.getEstructura().getTabla().equals(nombreEstructuraRef)) {
+                bandera = true;
+            }
+            actual = actual.getSiguiente();
+        }
+        return bandera;
+    }
+
+    //Metodo que imprime (Void: eliminarFinal return y pasar string -> println)
     public NodoEstructura[] returnNodos() {
         NodoEstructura[] nodos = new NodoEstructura[size];
         int contador = 0;
@@ -115,6 +130,4 @@ public class ListaEstructuras {
         }
         return nodos;
     }
-
-    //Ver si desarrolla o no: Metodo que busca un Nodo mediante su posicion (ID) en la Lista
 }
