@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entrada>
+        <cliente>
+            <Nit>1233456</Nit>
+            <Nombre>Luis</Nombre>
+            <Apellido>Mendez</Apellido>
+        </cliente>
+        <factura>
+            <NoFactura>2</NoFactura>
+            <Nit>123456</Nit>
+            <Fecha>23/05/2023</Fecha>
+            <Lugar>Quiche</Lugar>
+            <Valor>467</Valor>
+        </factura>
+</entrada>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+<estructuras>
+    <estructura>
+        <tabla>cliente</tabla>
+        <Nit>int</Nit>
+        <Nombre>char</Nombre>
+        <Apellido>char</Apellido>
+        <clave>Nit</clave>
+    </estructura>
+    <estructura>
+        <tabla>factura</tabla>
+        <NoFactura>int</NoFactura>
+        <relacion>
+            <Nit>int</Nit>
+            <Cliente> Nit </Cliente>
+        </relacion>
+        <Fecha>char</Fecha>
+        <Lugar>char</Lugar>
+        <Valor>int</Valor>
+        <clave>NoFactura</clave>
+    </estructura>
+</estructuras>
+
