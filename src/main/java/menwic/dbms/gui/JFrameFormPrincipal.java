@@ -45,13 +45,10 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
         itemCargarArchivo = new javax.swing.JMenuItem();
-        itemLeerArchivo = new javax.swing.JMenuItem();
         itemCargarArchivo1 = new javax.swing.JMenuItem();
         menuEstructura = new javax.swing.JMenu();
-        jMenuItemListarEstructuras = new javax.swing.JMenuItem();
         jMenuItemCrudEstructuras = new javax.swing.JMenuItem();
         menuTupla = new javax.swing.JMenu();
-        jMenuItemSelecEstructura = new javax.swing.JMenuItem();
         jMenuItemCrudTupla = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,15 +76,6 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         });
         menuArchivo.add(itemCargarArchivo);
 
-        itemLeerArchivo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        itemLeerArchivo.setText("Leer Archivo");
-        itemLeerArchivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemLeerArchivoActionPerformed(evt);
-            }
-        });
-        menuArchivo.add(itemLeerArchivo);
-
         itemCargarArchivo1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
         itemCargarArchivo1.setText("Cargar Entrada(s)");
         itemCargarArchivo1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,10 +89,6 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
 
         menuEstructura.setText("Estructura/Tabla");
 
-        jMenuItemListarEstructuras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMenuItemListarEstructuras.setText("Ver Estructuras");
-        menuEstructura.add(jMenuItemListarEstructuras);
-
         jMenuItemCrudEstructuras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemCrudEstructuras.setText("CRUD Estructuras");
         jMenuItemCrudEstructuras.addActionListener(new java.awt.event.ActionListener() {
@@ -117,10 +101,6 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(menuEstructura);
 
         menuTupla.setText("Tupla/Fila");
-
-        jMenuItemSelecEstructura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMenuItemSelecEstructura.setText("Seleccionar Estructura");
-        menuTupla.add(jMenuItemSelecEstructura);
 
         jMenuItemCrudTupla.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemCrudTupla.setText("CRUD Fila/TUpla");
@@ -177,13 +157,6 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
             System.out.println("No se seleccionó ningún archivo");
         }
     }//GEN-LAST:event_itemCargarArchivoActionPerformed
-
-    private void itemLeerArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLeerArchivoActionPerformed
-        // TODO add your handling code here:
-
-        //Algun metodo que ejecute mediante un switch el tipo de lectura correspondiente
-
-    }//GEN-LAST:event_itemLeerArchivoActionPerformed
 
     private void jMenuItemCrudTuplaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCrudTuplaActionPerformed
         JPanelTuplas pTuplas = new JPanelTuplas(listaEstructuras);
@@ -272,12 +245,9 @@ public class JFrameFormPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel JPanelContenedor;
     private javax.swing.JMenuItem itemCargarArchivo;
     private javax.swing.JMenuItem itemCargarArchivo1;
-    private javax.swing.JMenuItem itemLeerArchivo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCrudEstructuras;
     private javax.swing.JMenuItem jMenuItemCrudTupla;
-    private javax.swing.JMenuItem jMenuItemListarEstructuras;
-    private javax.swing.JMenuItem jMenuItemSelecEstructura;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuEstructura;
     private javax.swing.JMenu menuTupla;
