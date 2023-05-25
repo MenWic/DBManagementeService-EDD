@@ -275,11 +275,11 @@ public class JPanelEstructuras extends javax.swing.JPanel {
 
                     Campo nuevoCampo = new Campo(nombreCampo, tipoDato); //Creacion Basica de Campo
                     //Agg puntero/referencia del Campo
-                    nuevoCampo.setCampoReferencia(listaEstructuras.getNodoEstructuraPorNombre(estructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombre(nombreCampo).getCampo());
-                    nuevaEstructura.getListaCampos().agregarAlFinal(nuevoCampo); //Agg Campo a la ListaCampos de la Estructura
+                    nuevoCampo.setCampoReferencia(listaEstructuras.getNodoEstructuraPorNombre(estructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombreCampo(nombreCampo).getCampo());
+                    nuevaEstructura.getListaCampos().insertarFinal(nuevoCampo); //Agg Campo a la ListaCampos de la Estructura
                 } else { //CAMPO SIN REFERENCIA
                     Campo nuevoCampo = new Campo(nombreCampo, tipoDato); //Creacion Basica de Campo
-                    nuevaEstructura.getListaCampos().agregarAlFinal(nuevoCampo); //Agg Campo a la ListaCampos de la Estructura
+                    nuevaEstructura.getListaCampos().insertarFinal(nuevoCampo); //Agg Campo a la ListaCampos de la Estructura
                 }
             }
 

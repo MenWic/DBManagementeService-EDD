@@ -24,7 +24,7 @@ public class ListaCampos {
     }
 
     //Incersion a la cola
-    public void agregarAlFinal(Campo campo) {
+    public void insertarFinal(Campo campo) {
         NodoCampo nuevoNodo = new NodoCampo(campo);
 
         if (estaVacia()) { //si esta vacia
@@ -41,7 +41,7 @@ public class ListaCampos {
     }
 
     //Metodo que busca un Nodo que posea el nombre indicado (Usar al buscar referencia en alguna Estructura creada)
-    public NodoCampo getNodoCampoPorNombre(String nombre) {
+    public NodoCampo getNodoCampoPorNombreCampo(String nombre) {
         NodoCampo actual = primero;
 
         while (actual != null) { //Recorrer los nodoCampo mientras no sean NULL

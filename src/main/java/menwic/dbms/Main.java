@@ -46,17 +46,17 @@ public class Main {
         nombreCampoUser = "Nit";
         tipoDatoUser = "int";
         Campo campo0 = new Campo(nombreCampoUser, tipoDatoUser); //Referencia usada en Estructura Colegio
-        listaCamposCliente.agregarAlFinal(campo0);
+        listaCamposCliente.insertarFinal(campo0);
 
         nombreCampoUser = "Nombre";
         tipoDatoUser = "varchar";
         Campo campo1 = new Campo(nombreCampoUser, tipoDatoUser);
-        listaCamposCliente.agregarAlFinal(campo1);
+        listaCamposCliente.insertarFinal(campo1);
 
         nombreCampoUser = "Apellido";
         tipoDatoUser = "varchar";
         Campo campo2 = new Campo(nombreCampoUser, tipoDatoUser);
-        listaCamposCliente.agregarAlFinal(campo2);
+        listaCamposCliente.insertarFinal(campo2);
 
         structCliente.setListaCampos(listaCamposCliente); //Agregamos/Setteamos la listaCampos de la Estructura
         listaEstructuras.insertarFinal(structCliente); //Agregamos la Estructura creada a la Lista Principal
@@ -74,7 +74,7 @@ public class Main {
         nombreCampoUser = "NoFactura";
         tipoDatoUser = "int";
         Campo campo00 = new Campo(nombreCampoUser, tipoDatoUser); //Referencia usada en Estructura Colegio
-        listaCamposFactura.agregarAlFinal(campo00);
+        listaCamposFactura.insertarFinal(campo00);
 
         nombreCampoUser = "Nit";
         tipoDatoUser = "int";
@@ -82,28 +82,28 @@ public class Main {
 
         Campo campo11 = new Campo(nombreCampoUser, tipoDatoUser);
         if (nombreEstructuraRef != "") { //Si el field nombreEstructura no esta vacio (o verificar si esta enabled el check), crear con ref a otro campo
-            campo11.setCampoReferencia(listaEstructuras.getNodoEstructuraPorNombre(nombreEstructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombre(nombreCampoUser).getCampo());
+            campo11.setCampoReferencia(listaEstructuras.getNodoEstructuraPorNombre(nombreEstructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombreCampo(nombreCampoUser).getCampo());
             nombreEstructuraRef = "";
         }
-        listaCamposFactura.agregarAlFinal(campo11); //Guardamos el Campo en la listaCampos de Factura
+        listaCamposFactura.insertarFinal(campo11); //Guardamos el Campo en la listaCampos de Factura
 
         nombreCampoUser = "Fecha";
         tipoDatoUser = "varchar";
         Campo campo22 = new Campo(nombreCampoUser, tipoDatoUser);
 
-        listaCamposFactura.agregarAlFinal(campo22);
+        listaCamposFactura.insertarFinal(campo22);
 
         nombreCampoUser = "Lugar";
         tipoDatoUser = "varchar";
         Campo campo33 = new Campo(nombreCampoUser, tipoDatoUser);
 
-        listaCamposFactura.agregarAlFinal(campo33);
+        listaCamposFactura.insertarFinal(campo33);
 
         nombreCampoUser = "Valor";
         tipoDatoUser = "double";
         Campo campo44 = new Campo(nombreCampoUser, tipoDatoUser);
 
-        listaCamposFactura.agregarAlFinal(campo44);
+        listaCamposFactura.insertarFinal(campo44);
         structFactura.setListaCampos(listaCamposFactura); //Por ultimo, Agregamos/Setteamos la listaCampos de la Estructura
 
         listaEstructuras.insertarFinal(structFactura); //Agregamos la Estructura creada a la Lista Principal

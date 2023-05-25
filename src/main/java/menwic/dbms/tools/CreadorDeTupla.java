@@ -98,7 +98,7 @@ public class CreadorDeTupla {
     private boolean saberSiExistenCamposEnTabla(NodoEstructura nodoTabla, Campo[] campos) {
         for (Campo campo : campos) {//por cada uno de los campos en el array hacemos validacion
             //dentro de tabla>campos mandamos a buscar el nombre del campo
-            NodoCampo nodoCampo = nodoTabla.getEstructura().getListaCampos().getNodoCampoPorNombre(campo.getNombreCampo());
+            NodoCampo nodoCampo = nodoTabla.getEstructura().getListaCampos().getNodoCampoPorNombreCampo(campo.getNombreCampo());
             //si el campo buscado es false entonces enviamos false como respuesta
             if (nodoCampo == null) {
                 return false;

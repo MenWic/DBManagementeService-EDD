@@ -80,7 +80,7 @@ public class FileHandler {
 
                                 default:
                                     Campo nuevoCampo = new Campo(nombreNodo, valorNodo);
-                                    listaCampos.agregarAlFinal(nuevoCampo);
+                                    listaCampos.insertarFinal(nuevoCampo);
                                     //throw new AssertionError();
                                     break;
                             }
@@ -88,7 +88,7 @@ public class FileHandler {
                     }
 
                     if (clave != null) {
-                        NodoCampo nodoCampoClave = listaCampos.getNodoCampoPorNombre(clave); //Tipo Campo
+                        NodoCampo nodoCampoClave = listaCampos.getNodoCampoPorNombreCampo(clave); //Tipo Campo
 
                         if (nodoCampoClave != null) {
                             nuevaEstructura.setCampoClave(clave); //Agregamos Clave leida al objeto Estructura
