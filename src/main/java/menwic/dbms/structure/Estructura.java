@@ -9,41 +9,39 @@ import menwic.dbms.tuple.ListaTuplas;
  */
 public class Estructura { //Ordenar en base a su nombre en Arbol B+ Principal
 
-    private String tabla; //Nombre de Tabla/Estructura
-    private String clave; //Nombre del campo que sera PrimaryKey
+    private String nombreTabla; //Nombre de Tabla/Estructura
+    private String campoClave; //Nombre del campo que sera PrimaryKey
     private ListaCampos listaCampos; //ListaEnlazada que contiene el nombre de listaCampos/cols que tendra la Estructura/Tabla
     private ListaTuplas listaTuplas; //xd
     //private BPlusTree_Estructuras arbolPrincipal; //Arbol en el que se albergaran Tuplas
 
     //Constructor (Verificar: si construimos sin parametros, y luego seteamos los atributos del Objeto)
-    public Estructura(String tabla, String clave) { //, ListaCampos listaCampos
-        this.tabla = tabla;
-        this.clave = clave;
-
+    public Estructura(String nombreTabla, String campoClave) { //, ListaCampos listaCampos
+        this.nombreTabla = nombreTabla;
+        this.campoClave = campoClave;
         this.listaCampos = new ListaCampos();
         this.listaTuplas = new ListaTuplas();
-
     }
 
-    //Temporal
+    //Constructor usado en electura de Archivo Estructura.xml, para crear posteriormente sus campos
     public Estructura() {
     }
 
     //Getters y Setters
-    public String getTabla() {
-        return tabla;
+    public String getNombreTabla() {
+        return nombreTabla;
     }
 
-    public void setTabla(String tabla) {
-        this.tabla = tabla;
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
-    public String getClave() {
-        return clave;
+    public String getCampoClave() {
+        return campoClave;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setCampoClave(String campoClave) {
+        this.campoClave = campoClave;
     }
 
     public ListaCampos getListaCampos() {
@@ -61,11 +59,4 @@ public class Estructura { //Ordenar en base a su nombre en Arbol B+ Principal
     public void setListaTuplas(ListaTuplas listaTuplas) {
         this.listaTuplas = listaTuplas;
     }
-    
-    //Metodos de insertar Nodos a Arbol
-    /*
-    public void insertarTuplas(String[] listaTuplas) {
-        this.arbolTuplas.insert(0, listaTuplas);
-    }
-     */
 }

@@ -6,9 +6,11 @@ package menwic.dbms.tuple;
  */
 public class NodoTupla {
 
+    //Variables globales
     private Tupla tupla;
     private NodoTupla siguiente;
 
+    //Constructor
     public NodoTupla(Tupla valor) {
         this.tupla = valor;
         this.siguiente = null;

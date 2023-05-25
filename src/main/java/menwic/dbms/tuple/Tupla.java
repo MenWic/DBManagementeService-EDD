@@ -13,24 +13,20 @@ public class Tupla {
     public String clave;
     public ListaValores listaValores;
 
+    //Constructor
     public Tupla(ListaValores listaValores, String clave) {
         this.listaValores = listaValores;
         this.clave = clave;
     }
 
-    /**
-     * Crea una lista de valores a partir d eun array de valores
-     *
-     * @param valores
-     * @param clave
-     */
+    //Metodo que crea una lista de valores a partir d eun array de valores
     public Tupla(Valor[] valores, String clave) {
         this.listaValores = new ListaValores();
 
-        for (Valor itemValor : valores) {
+        for (Valor itemValor : valores) { //Recorre cada nodo de valores
             this.listaValores.agregarAlFinal(itemValor);
         }
-        this.clave = clave;
+        this.clave = clave; //retorna la clave de cada nodo en cada iteracion
     }
 
     //Getters y Setters

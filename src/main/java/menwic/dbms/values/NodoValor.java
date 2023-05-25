@@ -5,9 +5,12 @@ package menwic.dbms.values;
  * @author lamr4
  */
 public class NodoValor {
+
+    //Variables globales 
     private Valor valor;
     private NodoValor siguiente;
 
+    //Constructor
     public NodoValor(Valor valor) {
         this.valor = valor;
         this.siguiente = null;

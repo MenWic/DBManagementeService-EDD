@@ -1,18 +1,17 @@
 package menwic.dbms.tuple;
 
-import menwic.dbms.structure_fields.Campo;
-import menwic.dbms.structure_fields.NodoCampo;
-
 /**
  *
  * @author lamr4
  */
 public class ListaTuplas {
 
+    //Variables globales
     private NodoTupla primero;
     private NodoTupla ultimo;
     private int size;
 
+    //Constructor
     public ListaTuplas() {
         this.primero = null;
         this.ultimo = null;
@@ -79,6 +78,7 @@ public class ListaTuplas {
         return strTupla;
     }
 
+    //Get
     public Tupla[] getTuplas() {
         Tupla[] tuplas = new Tupla[size];
         int contador = 0;

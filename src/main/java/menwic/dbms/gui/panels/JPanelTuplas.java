@@ -279,7 +279,7 @@ public class JPanelTuplas extends javax.swing.JPanel {
 
             for (Campo campoItem : campos) {
                 for (Valor valorItem : valores) {
-                    if (campoItem.getNombre().equals(valorItem.getNombreCampo())) {
+                    if (campoItem.getNombreCampo().equals(valorItem.getNombreCampo())) {
                         fila[contador] = valorItem.getContenido();
                     }
                 }
@@ -296,7 +296,7 @@ public class JPanelTuplas extends javax.swing.JPanel {
 
         //por cada campo agreagmos una nueva columna
         for (Campo itemCampo : campos) {
-            tablaModel.addColumn(itemCampo.getNombre());
+            tablaModel.addColumn(itemCampo.getNombreCampo());
         }
         //a la tabla le seteamos un nuevo modelo de columnas
         tabla.setModel(tablaModel);

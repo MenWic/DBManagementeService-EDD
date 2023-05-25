@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package menwic.dbms.structure;
 
 import menwic.dbms.values.ListaValores;
@@ -12,7 +8,7 @@ import menwic.dbms.values.ListaValores;
  */
 public class NodoEstructura {
 
-    private Estructura estructura;
+    private Estructura estructura; //Objeto principal
     private NodoEstructura siguiente;
     private ListaValores listaTuplas;
 
@@ -37,5 +33,4 @@ public class NodoEstructura {
     public void setSiguiente(NodoEstructura siguiente) {
         this.siguiente = siguiente;
     }
-
 }

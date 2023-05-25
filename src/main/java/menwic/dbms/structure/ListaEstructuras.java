@@ -44,12 +44,12 @@ public class ListaEstructuras {
             primero = nuevoNodo;
             ultimo = nuevoNodo;
             size++;
-            System.out.println("Se inserto la primer Estructura: " + nuevoNodo.getEstructura().getTabla() + " a la Lista");
+            System.out.println("Se inserto la primer Estructura: " + nuevoNodo.getEstructura().getNombreTabla() + " a la Lista");
         } else { //Cuando no esta vacia
             ultimo.setSiguiente(nuevoNodo);
             ultimo = nuevoNodo; //Actualizamos el puntero Ultimo
             size++;
-            System.out.println("Se inserto la nueva Estructura: " + nuevoNodo.getEstructura().getTabla() + " a la Lista");
+            System.out.println("Se inserto la nueva Estructura: " + nuevoNodo.getEstructura().getNombreTabla() + " a la Lista");
         }
     }
 
@@ -81,7 +81,7 @@ public class ListaEstructuras {
         NodoEstructura actual = primero;
 
         while (actual != null) { //Recorrer los nodoCampo mientras no sean NULL
-            if (actual.getEstructura().getTabla().equals(nombreTabla)) {
+            if (actual.getEstructura().getNombreTabla().equals(nombreTabla)) {
                 return actual;
             }
             actual = actual.getSiguiente();
@@ -95,7 +95,7 @@ public class ListaEstructuras {
         NodoEstructura actual = primero;
 
         while (actual != null) { //Minetras hayan nodos en la Lista
-            strListaEstructuras += "\nNombreTabla = " + actual.getEstructura().getTabla() + "\nClave = " + actual.getEstructura().getClave() + "\nListaCampos = {\n" + actual.getEstructura().getListaCampos().recorrerListaCampos() + "}\n";
+            strListaEstructuras += "\nNombreTabla = " + actual.getEstructura().getNombreTabla() + "\nClave = " + actual.getEstructura().getCampoClave() + "\nListaCampos = {\n" + actual.getEstructura().getListaCampos().recorrerListaCampos() + "}\n";
             actual = actual.getSiguiente();
         }
         System.out.println(strListaEstructuras);
@@ -108,7 +108,7 @@ public class ListaEstructuras {
         boolean bandera = false;
 
         while (actual != null) {
-            if (actual.getEstructura().getTabla().equals(nombreEstructuraRef)) {
+            if (actual.getEstructura().getNombreTabla().equals(nombreEstructuraRef)) {
                 bandera = true;
             }
             actual = actual.getSiguiente();

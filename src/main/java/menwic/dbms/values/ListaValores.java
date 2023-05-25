@@ -1,23 +1,22 @@
 package menwic.dbms.values;
 
-import menwic.dbms.structure_fields.Campo;
-import menwic.dbms.structure_fields.NodoCampo;
-
 /**
  *
  * @author lamr4
  */
 public class ListaValores {
-
+    //Variables globales
     private NodoValor primero;
     private NodoValor ultimo;
     private int size;
 
+    //COnstructor
     public ListaValores() {
         this.primero = null;
         this.ultimo = null;
     }
 
+    //METODOS PRINCIPALES
     //Verificar si la Lista no tiene Nodos
     public boolean estaVacia() {
         return primero == null;
@@ -76,6 +75,7 @@ public class ListaValores {
         return strTupla;
     }
 
+    //Get
     public Valor[] getValores() {
         Valor[] valor = new Valor[size];
         int contador = 0;

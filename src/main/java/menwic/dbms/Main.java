@@ -82,7 +82,7 @@ public class Main {
 
         Campo campo11 = new Campo(nombreCampoUser, tipoDatoUser);
         if (nombreEstructuraRef != "") { //Si el field nombreEstructura no esta vacio (o verificar si esta enabled el check), crear con ref a otro campo
-            campo11.setReferencia(listaEstructuras.getNodoEstructuraPorNombre(nombreEstructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombre(nombreCampoUser).getCampo());
+            campo11.setCampoReferencia(listaEstructuras.getNodoEstructuraPorNombre(nombreEstructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombre(nombreCampoUser).getCampo());
             nombreEstructuraRef = "";
         }
         listaCamposFactura.agregarAlFinal(campo11); //Guardamos el Campo en la listaCampos de Factura

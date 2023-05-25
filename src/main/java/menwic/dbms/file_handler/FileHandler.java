@@ -64,7 +64,7 @@ public class FileHandler {
 
                             switch (nombreNodo) {
                                 case "tabla":
-                                    nuevaEstructura.setTabla(valorNodo);
+                                    nuevaEstructura.setNombreTabla(valorNodo);
                                     break;
 
                                 case "clave":
@@ -91,7 +91,7 @@ public class FileHandler {
                         NodoCampo nodoCampoClave = listaCampos.getNodoCampoPorNombre(clave); //Tipo Campo
 
                         if (nodoCampoClave != null) {
-                            nuevaEstructura.setClave(clave); //Agregamos Clave leida al objeto Estructura
+                            nuevaEstructura.setCampoClave(clave); //Agregamos Clave leida al objeto Estructura
                             nuevaEstructura.setListaCampos(listaCampos); //Agregamos listaCampos leida al objeto Estructura
                             listaEstructuras.insertarFinal(nuevaEstructura);
                             System.out.println("Estructura creada y almacenada en listaEstructuras");

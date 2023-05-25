@@ -6,9 +6,11 @@ package menwic.dbms.values;
  */
 public class Valor {
 
+    //Variables globales
     public String contenido;
     public String nombreCampo;
 
+    //Constructor
     public Valor(String valor, String nombreCampo) {
         this.contenido = valor;
         this.nombreCampo = nombreCampo;
@@ -30,5 +32,4 @@ public class Valor {
     public void setNombreCampo(String nombreCampo) {
         this.nombreCampo = nombreCampo;
     }
-    
 }

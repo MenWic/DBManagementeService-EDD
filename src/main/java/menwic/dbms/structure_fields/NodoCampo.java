@@ -6,9 +6,11 @@ package menwic.dbms.structure_fields;
  */
 public class NodoCampo {
 
-    private Campo campo;
-    private NodoCampo siguiente;
+    //Atributos globales principales
+    private Campo campo; //Objeto principal
+    private NodoCampo siguiente; //Puntero al proximo
 
+    //Constructor
     public NodoCampo(Campo campo) {
         this.campo = campo;
         this.siguiente = null;
@@ -30,5 +32,4 @@ public class NodoCampo {
     public void setSiguiente(NodoCampo siguiente) {
         this.siguiente = siguiente;
     }
-
 }

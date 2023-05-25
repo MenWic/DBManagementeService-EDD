@@ -275,7 +275,7 @@ public class JPanelEstructuras extends javax.swing.JPanel {
 
                     Campo nuevoCampo = new Campo(nombreCampo, tipoDato); //Creacion Basica de Campo
                     //Agg puntero/referencia del Campo
-                    nuevoCampo.setReferencia(listaEstructuras.getNodoEstructuraPorNombre(estructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombre(nombreCampo).getCampo());
+                    nuevoCampo.setCampoReferencia(listaEstructuras.getNodoEstructuraPorNombre(estructuraRef).getEstructura().getListaCampos().getNodoCampoPorNombre(nombreCampo).getCampo());
                     nuevaEstructura.getListaCampos().agregarAlFinal(nuevoCampo); //Agg Campo a la ListaCampos de la Estructura
                 } else { //CAMPO SIN REFERENCIA
                     Campo nuevoCampo = new Campo(nombreCampo, tipoDato); //Creacion Basica de Campo
@@ -311,12 +311,12 @@ public class JPanelEstructuras extends javax.swing.JPanel {
     //Metodo que verifica si el nombre de la clave indicado, es un campo creado de la nueva estructura
     private boolean claveEstructuraExiste(Estructura estructura) { //Busca en listaCampos de la estructura que pasamos
 
-        String nombreClave = estructura.getClave();
+        String nombreClave = estructura.getCampoClave();
         Campo[] camposTabla = estructura.getListaCampos().returnCampos(); //Arreglo de nodos que posee campos de la estructura pasada
 
         //Recorre cada nodo del arreglo de Campos
         for (Campo campoItem : camposTabla) {
-            if (campoItem.getNombre().equals(nombreClave)) {
+            if (campoItem.getNombreCampo().equals(nombreClave)) {
                 return true;
             }
         }
@@ -327,8 +327,8 @@ public class JPanelEstructuras extends javax.swing.JPanel {
         this.tabla.setRowCount(0); //Remueve filas
 
         for (int i = 0; i < listaNodosEstructura.length; i++) {
-            String tabla = listaNodosEstructura[i].getEstructura().getTabla();
-            String clave = listaNodosEstructura[i].getEstructura().getClave();
+            String tabla = listaNodosEstructura[i].getEstructura().getNombreTabla();
+            String clave = listaNodosEstructura[i].getEstructura().getCampoClave();
 
             //Pasar valores de fila
             String[] fila = new String[2];

@@ -5,23 +5,25 @@ package menwic.dbms.structure_fields;
  * @author lamr4
  */
 public class Campo {
-    private String nombre;
+
+    //Atributos globales principales
+    private String nombreCampo;
     private String tipoDato;
-    private Campo referencia; //Puntero OPCIONAL hacia otro Campo (de otra Tabla/Estructura)
-    
-    //Constructor: Campos sin referencia a otra Tabla/Entidad
-    public Campo(String nombre, String tipoDato) {
-        this.nombre = nombre;
+    private Campo campoReferencia; //Puntero OPCIONAL hacia otro Campo (de otra Tabla/Estructura)
+
+    //Constructor: Campos sin campoReferencia a otra Tabla/Entidad
+    public Campo(String nombreCampo, String tipoDato) {
+        this.nombreCampo = nombreCampo;
         this.tipoDato = tipoDato;
     }
 
     // Getters y Setters
-    public String getNombre() {
-        return nombre;
+    public String getNombreCampo() {
+        return nombreCampo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreCampo(String nombreCampo) {
+        this.nombreCampo = nombreCampo;
     }
 
     public String getTipoDato() {
@@ -32,11 +34,12 @@ public class Campo {
         this.tipoDato = tipoDato;
     }
 
-    public Campo getReferencia() {
-        return referencia;
+    //MALA PRACTICA: Acceder a un Campo de OTRO Objeto y poderlo maniuplar desde aca por el setter
+    public Campo getCampoReferencia() {
+        return campoReferencia;
     }
 
-    public void setReferencia(Campo referencia) {
-        this.referencia = referencia;
+    public void setCampoReferencia(Campo campoReferencia) {
+        this.campoReferencia = campoReferencia;
     }
 }

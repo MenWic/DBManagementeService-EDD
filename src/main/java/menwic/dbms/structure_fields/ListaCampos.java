@@ -1,22 +1,23 @@
 package menwic.dbms.structure_fields;
 
-import menwic.dbms.structure.NodoEstructura;
-
 /**
  *
  * @author lamr4
  */
 public class ListaCampos {
 
+    //Atributos globales principales
     private NodoCampo primero;
     private NodoCampo ultimo;
     private int size = 0;
 
+    //Constructor
     public ListaCampos() {
         this.primero = null;
         this.ultimo = null;
     }
 
+    //Metodos Principales
     //Verificar si la Lista no tiene Nodos
     public boolean estaVacia() {
         return primero == null;
@@ -30,12 +31,12 @@ public class ListaCampos {
             primero = nuevoNodo;
             ultimo = nuevoNodo;
             size++;
-            System.out.println("Se inserto el primer Campo: " + nuevoNodo.getCampo().getNombre() + " a la Lista");
+            System.out.println("Se inserto el primer Campo: " + nuevoNodo.getCampo().getNombreCampo() + " a la Lista");
         } else { //Cuando no esta vacia
             ultimo.setSiguiente(nuevoNodo);
             ultimo = nuevoNodo; //Actualizamos el puntero Ultimo
             size++;
-            System.out.println("Se inserto el nuevo Campo: " + nuevoNodo.getCampo().getNombre() + " a la Lista");
+            System.out.println("Se inserto el nuevo Campo: " + nuevoNodo.getCampo().getNombreCampo() + " a la Lista");
         }
     }
 
@@ -44,7 +45,7 @@ public class ListaCampos {
         NodoCampo actual = primero;
 
         while (actual != null) { //Recorrer los nodoCampo mientras no sean NULL
-            if (actual.getCampo().getNombre().equals(nombre)) {
+            if (actual.getCampo().getNombreCampo().equals(nombre)) {
                 return actual;
             }
             actual = actual.getSiguiente();
@@ -59,10 +60,10 @@ public class ListaCampos {
 
         //Minetras hayan nodos en la Lista
         while (actual != null) {
-            if (actual.getCampo().getReferencia() == null) { //Si la referencia es null / no hay
-                strListaCampos += "NombreCampo: " + actual.getCampo().getNombre() + ", TipoDato: " + actual.getCampo().getTipoDato() + ", Referencia: " + "null\n";
+            if (actual.getCampo().getCampoReferencia() == null) { //Si la referencia es null / no hay
+                strListaCampos += "NombreCampo: " + actual.getCampo().getNombreCampo() + ", TipoDato: " + actual.getCampo().getTipoDato() + ", Referencia: " + "null\n";
             } else {
-                strListaCampos += "NombreCampo: " + actual.getCampo().getNombre() + ", TipoDato: " + actual.getCampo().getTipoDato() + ", Referencia: " + actual.getCampo().getReferencia().getNombre() + "\n";
+                strListaCampos += "NombreCampo: " + actual.getCampo().getNombreCampo() + ", TipoDato: " + actual.getCampo().getTipoDato() + ", Referencia: " + actual.getCampo().getCampoReferencia().getNombreCampo() + "\n";
             }
             actual = actual.getSiguiente();
         }
